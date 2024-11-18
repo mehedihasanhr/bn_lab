@@ -104,7 +104,7 @@ const fields: Field[] = [
 
   {
     name: 'batch',
-    type: 'number',
+    type: 'text',
     label: 'Batch',
     placeholder: 'Batch number',
     required: false,
@@ -169,6 +169,7 @@ export default function AddMedicines() {
     defaultValues: {
       image: '',
       name: '',
+      batch: '',
       dosageForm: undefined,
       strength: '',
       price: 0,

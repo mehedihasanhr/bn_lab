@@ -5,6 +5,7 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { RadioGroup, RadioGroupItem } from '../ui/radio-group';
 import DatePicker from './DatePicker';
+import RichEditor from './RichEditor';
 import UploadImage from './UploadImage';
 
 interface FormFieldProps extends UseControllerProps {
@@ -31,6 +32,10 @@ export default function RenderField({
         </Label>
       )}
       {match(props.type)
+        // rich editor
+        .with('rich-text', () => <RichEditor {...field} />)
+
+        // date
         .with('date', () => <DatePicker {...field} />)
 
         // file
@@ -38,7 +43,7 @@ export default function RenderField({
 
         // radio type
         .with('radio', () => (
-          <RadioGroup className="flex items-center gap-2">
+          <RadioGroup {...field} className="flex items-center gap-2">
             {props.options?.map((option) => (
               <Label key={option.value}>
                 <RadioGroupItem value={option.value} />

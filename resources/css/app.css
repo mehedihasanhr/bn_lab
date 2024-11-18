@@ -76,3 +76,12 @@ body {
 .categories-grid a {
   width: 100%;
 }
+
+.ck {
+  @apply text-sm;
+}
+
+.ck > ul,
+.ck > ol {
+  margin-left: 2rem;
+}
