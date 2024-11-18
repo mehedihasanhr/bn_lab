@@ -14,7 +14,7 @@ const loginSchema = z.object({
     .string({ required_error: 'Email is required' })
     .email('Invalid email address'),
 
-  password: z.string({ required_error: 'Password is required' }),
+  password: z.string().min(1, 'Password is required'),
 });
 
 // login form data
