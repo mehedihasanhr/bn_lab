@@ -43,9 +43,13 @@ export default function RenderField({
 
         // radio type
         .with('radio', () => (
-          <RadioGroup {...field} className="flex items-center gap-2">
+          <RadioGroup
+            value={field.value}
+            onValueChange={field.onChange}
+            className="flex items-center gap-2"
+          >
             {props.options?.map((option) => (
-              <Label key={option.value}>
+              <Label key={option.value} className="cursor-pointer">
                 <RadioGroupItem value={option.value} />
                 <span> {option.label} </span>
               </Label>

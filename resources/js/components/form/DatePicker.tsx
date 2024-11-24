@@ -11,8 +11,10 @@ const DatePicker = React.forwardRef<
   HTMLDivElement,
   { value?: Date; onChange: (date?: Date) => void }
 >(({ value, onChange }, ref) => {
+  const [isOPen, setIsOpen] = React.useState(false);
+
   return (
-    <Popover>
+    <Popover open={isOPen} onOpenChange={setIsOpen}>
       <PopoverTrigger aria-label="Open date picker">
         <Input
           readOnly
@@ -26,7 +28,10 @@ const DatePicker = React.forwardRef<
           <Calendar
             mode="single"
             selected={value ? new Date(value) : undefined}
-            onSelect={(date) => onChange(date)}
+            onSelect={(date) => {
+              onChange(date);
+              setIsOpen(false);
+            }}
           />
         </div>
       </PopoverContent>

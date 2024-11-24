@@ -14,8 +14,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('Reports');
     })->name('reports');
 
-    // inventory
+    // Inventory
     Route::get('/inventories/medicines', function () {
+        return Inertia::render('Inventory/Medicines');
+    })->name('inventories.medicines');
+
+    // Sales management
+    Route::get('/sales', function () {
         return Inertia::render('Inventory/Medicines');
     })->name('inventories.medicines');
 
